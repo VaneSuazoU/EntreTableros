@@ -1,11 +1,25 @@
+:root {
+  --color-principal: #5062fa;
+  --color-secundario: #3d299b;
+  --color-acento: #a855f7;
+  --color-contraste: #2dd4bf;
+  --color-fondo: #ede9fe;
+  --color-texto: white;
+
+  --fuente-titulo: "Orbitron", sans-serif;
+  --fuente-general: "Inter", sans-serif;
+
+  --sombra: 0 0 15px rgba(80, 98, 250, 0.3);
+}
+
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: var(--fuente-general);
   background: url("images/fondo.png") no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  color: white;
+  color: var(--color-texto);
   min-height: 100vh;
 }
 
@@ -26,7 +40,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, #5062fa, #ede9fe);
+  background: linear-gradient(to bottom, var(--color-principal), var(--color-fondo));
   opacity: 0.25;
   z-index: -1;
 }
@@ -41,10 +55,11 @@ body {
 }
 
 .logo {
-  font-family: "Orbitron", sans-serif;
+  font-family: var(--fuente-titulo);
   font-size: 2rem;
-  color: white;
+  color: var(--color-texto);
   flex: 1;
+  animation: logoGlow 2s infinite alternate ease-in-out;
 }
 
 .navigation ul {
@@ -57,7 +72,7 @@ body {
 
 .navigation a {
   text-decoration: none;
-  color: white;
+  color: var(--color-texto);
   font-weight: 500;
   font-size: 1rem;
 }
@@ -90,7 +105,7 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0;
-  color: white;
+  color: var(--color-texto);
 }
 
 .category-grid {
@@ -103,7 +118,7 @@ body {
 }
 
 .card {
-  background-color: #3d299b;
+  background-color: var(--color-secundario);
   padding: 1.5rem;
   border-radius: 1rem;
   width: 120px;
@@ -112,13 +127,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(80, 98, 250, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--sombra);
   text-decoration: none;
 }
 
 .card:hover {
   transform: scale(1.07);
+  box-shadow: 0 0 20px var(--color-acento);
 }
 
 .card img {
@@ -130,8 +146,9 @@ body {
   margin-top: 1rem;
   font-size: 1rem;
   font-weight: 500;
-  color: white;
+  color: var(--color-texto);
 }
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -141,15 +158,16 @@ body {
 }
 
 .product-card {
-  background-color: #3d299b;
+  background-color: var(--color-secundario);
   padding: 1rem;
   border-radius: 1rem;
   width: 260px;
-  box-shadow: 0 0 15px rgba(80, 98, 250, 0.3);
+  box-shadow: var(--sombra);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  animation: fadeIn 0.8s ease-in both;
 }
 
 .product-image {
@@ -179,14 +197,14 @@ body {
 .product-card .price {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #2dd4bf;
+  color: var(--color-contraste);
   margin: 0;
 }
 
 .product-card .description {
   font-size: 0.95rem;
   margin: 0.8rem 0;
-  color: white;
+  color: var(--color-texto);
 }
 
 .tags {
@@ -197,12 +215,12 @@ body {
 }
 
 .tag {
-  background-color: #a855f7;
+  background-color: var(--color-acento);
   border-radius: 1rem;
   padding: 0.3rem 0.6rem;
   font-size: 0.9rem;
   font-weight: 500;
-  color: white;
+  color: var(--color-texto);
   line-height: 1.2;
   display: flex;
   flex-direction: column;
@@ -213,6 +231,7 @@ body {
   font-weight: 400;
   opacity: 0.85;
 }
+
 .back-button {
   display: flex;
   justify-content: flex-end;
@@ -220,13 +239,14 @@ body {
 }
 
 .back-button a {
-  background-color: #2dd4bf;
+  background-color: var(--color-contraste);
   color: #1f1f1f;
   text-decoration: none;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   transition: background-color 0.3s ease;
+  animation: slideIn 0.8s ease forwards;
 }
 
 .back-button a:hover {
@@ -265,3 +285,20 @@ body {
     height: 120px;
   }
 }
+
+/* Animaciones */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes logoGlow {
+  from { text-shadow: 0 0 5px var(--color-acento); }
+  to { text-shadow: 0 0 15px var(--color-contraste); }
+} 
