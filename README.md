@@ -1,24 +1,32 @@
+
 # 🌌 EntreTableros - Tienda de Juegos de Mesa
 
-**EntreTableros** es una tienda ficticia de juegos de mesa con un diseño galáctico, moderno y amigable. Este proyecto fue desarrollado como parte de la asignatura *Desarrollo Full Stack II* para practicar estructura HTML, diseño CSS y desarrollo de interfaces responsivas.
+**EntreTableros** es una tienda ficticia de juegos de mesa con un diseño galáctico, moderno y amigable. Este proyecto fue desarrollado como parte de la asignatura *Desarrollo Full Stack II* para practicar estructura HTML, diseño CSS, responsividad y manipulación del DOM con JavaScript.
 
 ---
 
 ## 🎯 Objetivo
 
-Ofrecer una experiencia visual atractiva y ordenada para que los usuarios puedan explorar diferentes tipos de juegos de mesa según categorías: Estrategia, Familiares, Cartas e Infantiles.
+Ofrecer una experiencia visual atractiva y ordenada para que los usuarios puedan explorar juegos de mesa por categorías (Estrategia, Familiares, Cartas e Infantiles), y registrarse como compradores frecuentes.
+
+---
+
+## 🧩 Funcionalidades
+
+- Carga dinámica de juegos desde `games.json` en una sola página (`category.html`)
+- Navegación por categoría a través de parámetros en la URL (`?cat=...`)
+- Formulario de registro validado con JavaScript
+- Diseño responsivo con Bootstrap
+- Estructura modular y ordenada
 
 ---
 
 ## 🎨 Proceso Creativo
 
-El diseño del sitio se trabajó previamente en Figma y se documentó en la carpeta `/prototipo`, que incluye:
+El diseño se ideó en Figma y se documentó en la carpeta `/prototipo`, incluyendo:
 
 - Paleta de colores principal
-- Diseño de la página de inicio
-- Diseño de tarjetas por categoría
-
-Esto permitió traducir el concepto visual galáctico en un sitio funcional y responsivo.
+- Prototipo de página de inicio y tarjetas por categoría
 
 ---
 
@@ -37,47 +45,65 @@ Esto permitió traducir el concepto visual galáctico en un sitio funcional y re
 
 ## 🖼️ Diseño
 
-- Paleta de colores galáctica: tonos violeta, turquesa y blanco.
-- Tipografía:
-  - `Orbitron` para el logotipo
-  - `Inter` para el contenido general
-- Fondo galáctico con efecto translúcido en el contenido
-- Estilo responsivo con `flexbox`
+- Colores galácticos: violeta, turquesa, blanco
+- Tipografías: `Orbitron` (logo), `Inter` (contenido)
+- Efectos translúcidos con fondo galáctico
+- Responsividad mediante Bootstrap y Flexbox
 
 ---
 
-## 📂 Categorías y Juegos
+## 📂 Estructura del Proyecto
 
-Cada página muestra una categoría con 3 juegos destacados. Cada tarjeta incluye:
-
-- Imagen del juego
-- Nombre
-- Precio
-- Descripción
-- Chips con edad, duración y número de jugadores
+```
+EntreTableros/
+├── index.html
+├── category.html
+├── register.html
+├── games.json
+├── styles.css
+├── js/
+│   ├── category.js
+│   └── register.js
+├── images/
+│   ├── buscar.png
+│   ├── carrito.png
+│   └── ...iconos por categoría
+├── games/
+│   └── ...imagenes de juegos
+└── prototipo/
+    ├── paletaymarca.PNG
+    ├── home.PNG
+    └── categorias.png
+```
 
 ---
 
-## 🔁 Navegación
+## 📝 Validaciones en el formulario de registro (`register.html`)
 
-- El menú superior está presente en todas las páginas.
-- Cada categoría tiene un botón al final para **volver al inicio** (`index.html`).
+- Todos los campos obligatorios excepto dirección
+- Correo válido
+- Contraseñas iguales, con una mayúscula, un número y longitud entre 6-18 caracteres
+- Edad mínima: 13 años
+- Validación visual con Bootstrap (`is-valid`, `is-invalid`)
+- Botones de **Registrar** y **Limpiar**
 
 ---
 
 ## 💻 Tecnologías Usadas
 
-- HTML5
-- CSS3 (Flexbox, Gradientes, Media Queries)
+- HTML5 + CSS3
+- Bootstrap 5.3
+- JavaScript (DOM, validaciones)
 - Google Fonts
 
 ---
 
-## 🧪 Próximos pasos
+## ✅ Pendientes / Extensiones
 
-- Agregar una página de “Ofertas” con descuentos temporales.
-- Incluir un recomendador de juegos según edad e intereses.
-- Añadir un carrito funcional y formulario de contacto.
+- Página de “Ofertas”
+- Carrito funcional
+- Recomendador de juegos
+- Integración con almacenamiento local
 
 ---
 

@@ -1,0 +1,118 @@
+{
+  "estrategia": [
+    {
+      "nombre": "Catan",
+      "precio": 28990,
+      "descripcion": "Construye tu imperio comercial y domina la isla en este clásico juego de negociación y recursos.",
+      "imagen": "games/catan.png",
+      "edad": "+10",
+      "duracion": "45-90",
+      "jugadores": "3-4"
+    },
+    {
+      "nombre": "Carcassonne",
+      "precio": 24990,
+      "descripcion": "Coloca losetas y controla caminos y ciudades medievales para obtener la mayor cantidad de puntos.",
+      "imagen": "games/carcassonne.png",
+      "edad": "+7",
+      "duracion": "30-45",
+      "jugadores": "2-5"
+    },
+    {
+      "nombre": "Terraforming Mars",
+      "precio": 59990,
+      "descripcion": "Lidera una corporación y transforma Marte gestionando recursos y tecnología para hacerlo habitable.",
+      "imagen": "games/transformingmarts.png",
+      "edad": "+12",
+      "duracion": "120",
+      "jugadores": "1-5"
+    }
+  ],
+  "familiares": [
+    {
+      "nombre": "Dixit",
+      "precio": 29990,
+      "descripcion": "Imagina, cuenta y adivina en este juego de cartas ilustradas.",
+      "imagen": "games/dixit.png",
+      "edad": "+8",
+      "duracion": "30",
+      "jugadores": "3-6"
+    },
+    {
+      "nombre": "King of Tokyo",
+      "precio": 34990,
+      "descripcion": "Lanza dados, destruye y conviértete en el monstruo supremo.",
+      "imagen": "games/kingoftokyoorigins.jpg",
+      "edad": "+8",
+      "duracion": "30",
+      "jugadores": "2-6"
+    },
+    {
+      "nombre": "Ticket to Ride Europa",
+      "precio": 44990,
+      "descripcion": "Conecta ciudades en tren y construye la mejor red ferroviaria.",
+      "imagen": "games/TickettoRideEurope.webp",
+      "edad": "+8",
+      "duracion": "30-60",
+      "jugadores": "2-5"
+    }
+  ],
+  "cartas": [
+    {
+      "nombre": "UNO",
+      "precio": 6990,
+      "descripcion": "El clásico juego de cartas para toda la familia.",
+      "imagen": "games/uno.webp",
+      "edad": "+7",
+      "duracion": "15-30",
+      "jugadores": "2-10"
+    },
+    {
+      "nombre": "Exploding Kittens",
+      "precio": 18990,
+      "descripcion": "Evita a los gatitos explosivos en esta divertida locura estratégica.",
+      "imagen": "games/explodingkitten.webp",
+      "edad": "+7",
+      "duracion": "15",
+      "jugadores": "2-5"
+    },
+    {
+      "nombre": "Virus!",
+      "precio": 12990,
+      "descripcion": "Compite por desarrollar un cuerpo sano y contagia a tus rivales.",
+      "imagen": "games/virus.png",
+      "edad": "+8",
+      "duracion": "20",
+      "jugadores": "2-6"
+    }
+  ],
+  "infantiles": [
+    {
+      "nombre": "Dobble",
+      "precio": 10990,
+      "descripcion": "Encuentra la imagen en común más rápido que los demás.",
+      "imagen": "games/dobble.png",
+      "edad": "+6",
+      "duracion": "15",
+      "jugadores": "2-8"
+    },
+    {
+      "nombre": "Little Cooperation",
+      "precio": 15990,
+      "descripcion": "Trabajen juntos para ayudar a los animales a cruzar el puente.",
+      "imagen": "games/littlecooperation.webp",
+      "edad": "+2.5",
+      "duracion": "10",
+      "jugadores": "2-4"
+    },
+    {
+      "nombre": "La Cucaracha",
+      "precio": 26990,
+      "descripcion": "Atrapa a la cucaracha robot en este divertido juego de reflejos.",
+      "imagen": "games/lacucaracha.jpeg",
+      "edad": "+5",
+      "duracion": "20",
+      "jugadores": "2-4"
+    }
+  ]
+}
