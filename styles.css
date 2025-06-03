@@ -89,11 +89,15 @@ body {
 }
 
 .welcome-section {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 1.5rem;
   padding: 2rem 1rem;
+  text-align: center;
 }
 
 .section-title {
@@ -293,6 +297,17 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(30px); }
   to { opacity: 1; transform: translateX(0); }
@@ -301,4 +316,4 @@ body {
 @keyframes logoGlow {
   from { text-shadow: 0 0 5px var(--color-acento); }
   to { text-shadow: 0 0 15px var(--color-contraste); }
-} 
+}
