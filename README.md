@@ -1,21 +1,41 @@
 
 # 🌌 EntreTableros - Tienda de Juegos de Mesa
 
-**EntreTableros** es una tienda ficticia de juegos de mesa con un diseño galáctico, moderno y amigable. Este proyecto fue desarrollado como parte de la asignatura *Desarrollo Full Stack II* para practicar estructura HTML, diseño CSS, responsividad y manipulación del DOM con JavaScript.
+**EntreTableros** es una tienda ficticia de juegos de mesa con un diseño galáctico, moderno y amigable. Este proyecto fue desarrollado como parte de la asignatura *Desarrollo Full Stack II* para practicar estructura HTML, diseño CSS, responsividad, manipulación del DOM con JavaScript, y gestión de sesiones y roles.
 
 ---
 
 ## 🎯 Objetivo
 
-Ofrecer una experiencia visual atractiva y ordenada para que los usuarios puedan explorar juegos de mesa por categorías (Estrategia, Familiares, Cartas e Infantiles), y registrarse como compradores frecuentes.
+Ofrecer una experiencia visual atractiva e interactiva para que los usuarios puedan:
+
+- Explorar juegos de mesa por categorías
+- Registrarse e iniciar sesión como usuarios frecuentes
+- Participar en un **Tablero Social** (foro)
+- Acumular puntos por participación
+- Desbloquear niveles y descuentos
+- Gestionar su perfil
 
 ---
 
-## 🧩 Funcionalidades
+## 🧹 Funcionalidades
 
 - Carga dinámica de juegos desde `games.json` en una sola página (`category.html`)
 - Navegación por categoría a través de parámetros en la URL (`?cat=...`)
-- Formulario de registro validado con JavaScript
+- Registro, inicio de sesión, recuperación de contraseña
+- Gestión de perfil editable
+- Sistema de roles **Admin / Cliente**
+- Validación de formularios en todas las vistas
+- Persistencia de usuarios y publicaciones en `localStorage`
+- **Tablero Social**:
+  - Publicar mensajes
+  - Dar "Like" a publicaciones
+  - Eliminar publicaciones (Admin → todas, Cliente → propias)
+  - Acumulación de puntos por participación
+  - Niveles de usuario (Básico, Bronce, Plata, Oro)
+  - Contador de publicaciones
+  - Validación de sesión: no permite ir a login/registro si ya hay sesión activa
+  - Cierre de sesión desde menú y perfil
 - Diseño responsivo con Bootstrap
 - Estructura modular y ordenada
 
@@ -58,15 +78,20 @@ El diseño se ideó en Figma y se documentó en la carpeta `/prototipo`, incluye
 EntreTableros/
 ├── index.html
 ├── category.html
-├── register.html
+├── user.html
+├── tablero_social.html
 ├── games.json
+├── tablero_social.json
 ├── styles.css
 ├── js/
 │   ├── category.js
-│   └── register.js
+│   ├── common.js
+│   ├── user.js
+│   └── tablero.js
 ├── images/
 │   ├── buscar.png
 │   ├── carrito.png
+│   ├── foto_perfil_default.png
 │   └── ...iconos por categoría
 ├── games/
 │   └── ...imagenes de juegos
@@ -76,16 +101,46 @@ EntreTableros/
     └── categorias.png
 ```
 
----
+## 📝 Validaciones
 
-## 📝 Validaciones en el formulario de registro (`register.html`)
+### Formulario de registro (`register.html`)
 
 - Todos los campos obligatorios excepto dirección
 - Correo válido
-- Contraseñas iguales, con una mayúscula, un número y longitud entre 6-18 caracteres
+- Contraseñas iguales, con al menos una mayúscula, un número y longitud entre 6-18 caracteres
 - Edad mínima: 13 años
-- Validación visual con Bootstrap (`is-valid`, `is-invalid`)
-- Botones de **Registrar** y **Limpiar**
+- Validación visual con Bootstrap
+
+### Formularios del foro
+
+- Publicar mensaje: validación visual si el campo está vacío
+- No permite publicar vacío
+- Comentarios y likes funcionales
+
+---
+
+## 👥 Gestión de Sesiones y Roles
+
+- Sistema de login / logout con persistencia en `localStorage`
+- Validación en todas las vistas:
+  - No permite acceder a login/registro con sesión activa
+  - Redirige a perfil
+- Menú con opción **Cerrar sesión**
+- Roles:
+  - **Admin**: eliminar todas las publicaciones, gestionar todo
+  - **Cliente**: eliminar solo sus propias publicaciones
+
+---
+
+## 🏅 Niveles y Puntos
+
+- Cada participación en el foro suma puntos
+- Los puntos se reflejan en el perfil del usuario
+- Niveles:
+  - 0-9 pts → Nivel Básico (sin descuento)
+  - 10-19 pts → Nivel Bronce (5%)
+  - 20-49 pts → Nivel Plata (10%)
+  - 50+ pts → Nivel Oro (20%)
 
 ---
 
@@ -93,21 +148,23 @@ EntreTableros/
 
 - HTML5 + CSS3
 - Bootstrap 5.3
-- JavaScript (DOM, validaciones)
-- Google Fonts
+- JavaScript (DOM, validaciones, `localStorage`)
 
 ---
 
-## ✅ Pendientes / Extensiones
+## ✅ Pendientes / Posibles Extensiones
 
-- Página de “Ofertas”
+- Página de “Ofertas” con productos destacados
 - Carrito funcional
-- Recomendador de juegos
-- Integración con almacenamiento local
+- Recomendador de juegos basado en puntos / preferencias
+- Panel de administración más completo
+- Mejoras visuales en la experiencia del Tablero Social (animaciones)
 
 ---
 
 ## 👩‍💻 Desarrollado por
 
-Vanessa Suazo  
-Proyecto académico – *Desarrollo Full Stack II* – 2025
+**Vanessa Suazo**Proyecto académico – *Desarrollo Full Stack II* – 2025
+
+---
+

@@ -1,0 +1,62 @@
+[
+    {
+        "username": "admin",
+        "date": "2025-06-09T18:59:04",
+        "content": "¡Hola a todos! Bienvenidos al Tablero Social.",
+        "likes": 3
+    },
+    {
+        "username": "MariaP",
+        "date": "2025-06-09T19:15:22",
+        "content": "Recomiendo el juego Dixit, es genial para la familia.",
+        "likes": 5
+    },
+    {
+        "username": "CarlosGamer",
+        "date": "2025-06-09T19:30:10",
+        "content": "¿Alguien ha probado Catan? ¡Me encanta!",
+        "likes": 2
+    },
+    {
+        "username": "LauraLudica",
+        "date": "2025-06-09T20:05:47",
+        "content": "Busco recomendaciones de juegos cooperativos 🙏",
+        "likes": 4
+    },
+    {
+        "username": "Pedro83",
+        "date": "2025-06-09T20:20:30",
+        "content": "Ayer jugué Ticket to Ride con mis hijos, ¡les fascinó! 🚂🎲",
+        "likes": 6
+    },
+    {
+        "username": "GamerGirl",
+        "date": "2025-06-09T20:45:12",
+        "content": "Me gustaría organizar una partida de Terraforming Mars online. ¿Quién se anima? 🌌",
+        "likes": 7
+    },
+    {
+        "username": "AnaBoard",
+        "date": "2025-06-09T21:10:50",
+        "content": "¿Cuál es su juego favorito para jugar con amigos? Estoy armando mi colección. 🎲",
+        "likes": 5
+    },
+    {
+        "username": "FedeJuegos",
+        "date": "2025-06-09T21:40:15",
+        "content": "Cuidado con el juego Coup... ¡Es adictivo! 😄",
+        "likes": 2
+    },
+    {
+        "username": "IsabelC",
+        "date": "2025-06-09T22:00:00",
+        "content": "¿Alguien conoce juegos de mesa chilenos interesantes? 🇨🇱",
+        "likes": 3
+    },
+    {
+        "username": "BoardGameFan",
+        "date": "2025-06-09T22:15:30",
+        "content": "Yo empecé con Carcassonne y no paro desde entonces 😍",
+        "likes": 4
+    }
+]

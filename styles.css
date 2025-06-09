@@ -317,3 +317,179 @@ body {
   from { text-shadow: 0 0 5px var(--color-acento); }
   to { text-shadow: 0 0 15px var(--color-contraste); }
 }
+/* Estilos para el botón hamburguesa */
+.hamburger-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  width: 24px;
+  height: 18px;
+  justify-content: space-between;
+}
+
+.hamburger-lines span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover .hamburger-lines span {
+  background-color: var(--color-contraste);
+}
+
+/* Estilos para el offcanvas con colores originales */
+.offcanvas {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
+}
+
+.offcanvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--color-principal), var(--color-secundario));
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.offcanvas-body {
+  position: relative;
+  z-index: 1;
+}
+
+.offcanvas-title {
+  color: var(--color-texto);
+  font-family: var(--fuente-titulo);
+  text-shadow: 0 0 10px var(--color-acento);
+}
+
+.btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.offcanvas .nav-link {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  color: var(--color-texto) !important;
+  font-weight: 500;
+}
+
+.offcanvas .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-contraste) !important;
+  transform: translateX(5px);
+}
+/* Contenedor para iconos y hamburguesa */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mantener los estilos originales de .icons */
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icons img {
+  width: 24px;
+  cursor: pointer;
+  filter: brightness(0) invert(1);
+}
+
+/* Estilo tipo publicación red social */
+.post {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--color-texto);
+  transition: transform 0.2s ease;
+}
+
+.post:hover {
+  transform: scale(1.02);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+.post-message {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.like-button {
+  background-color: var(--color-contraste);
+  border: none;
+  color: #1f1f1f;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.like-button:hover {
+  background-color: #23bfb0;
+}
+
+.like-count {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.delete-button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: #e60000;
+}
