@@ -60,6 +60,7 @@ body {
   color: var(--color-texto);
   flex: 1;
   animation: logoGlow 2s infinite alternate ease-in-out;
+  text-decoration: none;
 }
 
 .navigation ul {

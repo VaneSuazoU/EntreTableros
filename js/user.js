@@ -191,9 +191,89 @@ function togglePasswordVisibility(inputId) {
 function mostrarRegistro() {
     document.getElementById('titulo-user').textContent = 'Registro de Usuario';
     document.getElementById('contenedor-user').innerHTML = `
-        <p class="text-warning">⚠️ Registro deshabilitado mientras haya una sesión activa.</p>
+        <form id="registroForm" class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" required />
+            </div>
+            <div class="col-md-6">
+                <label for="usuario" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="usuario" required />
+            </div>
+            <div class="col-md-6">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" required />
+            </div>
+            <div class="col-md-6">
+                <label for="fecha" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control" id="fecha" required />
+            </div>
+            <div class="col-md-6">
+                <label for="password" class="form-label">Contraseña</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password" required />
+                    <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('password')">👁️</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="password2" class="form-label">Repetir contraseña</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" id="password2" required />
+                    <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('password2')">👁️</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="direccion" class="form-label">Dirección de despacho (opcional)</label>
+                <input type="text" class="form-control" id="direccion" />
+            </div>
+            <div class="col-12 d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </div>
+        </form>
     `;
+
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre');
+        const usuario = document.getElementById('usuario');
+        const correo = document.getElementById('correo');
+        const fecha = document.getElementById('fecha');
+        const password = document.getElementById('password');
+        const password2 = document.getElementById('password2');
+        const direccion = document.getElementById('direccion');
+
+        let valid = true;
+
+        if (!validarCampoVacio(nombre)) valid = false;
+        if (!validarCampoVacio(usuario)) valid = false;
+        if (!validarEmail(correo)) valid = false;
+        if (!validarEdad(fecha)) valid = false;
+        if (!validarPassword(password)) valid = false;
+        if (!validarPasswordIgual(password, password2)) valid = false;
+
+        if (valid) {
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            users.push({
+                nombre: nombre.value,
+                username: usuario.value,
+                email: correo.value,
+                dob: fecha.value,
+                password: password.value,
+                direccion: direccion.value,
+                puntos: 0,
+                rol: 'Cliente'
+            });
+
+            localStorage.setItem('users', JSON.stringify(users));
+            console.log('Nuevo usuario registrado:', usuario.value);
+            alert(`¡Bienvenido/a ${nombre.value}! Tu cuenta se ha registrado con éxito. Ahora puedes iniciar sesión.`);
+            window.location.href = 'user.html?view=login';
+        }
+    });
 }
+
 
 // -------------------------------------
 // MOSTRAR PERFIL
@@ -313,5 +393,84 @@ function obtenerNivelYDescuento(puntos) {
         return 'Nivel Bronce - 5% de descuento';
     } else {
         return 'Nivel Básico - sin descuento';
+    }
+}
+
+function mostrarErrorFeedback(input, mostrar, mensaje = '') {
+    let feedback = input.nextElementSibling;
+    
+    if (!feedback || !feedback.classList.contains('invalid-feedback')) {
+        feedback = document.createElement('div');
+        feedback.className = 'invalid-feedback';
+        input.parentNode.insertBefore(feedback, input.nextSibling);
+    }
+
+    if (mostrar) {
+        input.classList.add('is-invalid');
+        feedback.textContent = mensaje;
+        feedback.style.display = 'block';
+    } else {
+        input.classList.remove('is-invalid');
+        feedback.textContent = '';
+        feedback.style.display = 'none';
+    }
+}
+
+function validarCampoVacio(input) {
+    if (input.value.trim() === '') {
+        mostrarErrorFeedback(input, true, 'Este campo es obligatorio.');
+        return false;
+    } else {
+        mostrarErrorFeedback(input, false);
+        return true;
+    }
+}
+
+function validarEmail(input) {
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    if (!emailRegex.test(input.value.trim())) {
+        mostrarErrorFeedback(input, true, 'Ingrese un email válido.');
+        return false;
+    } else {
+        mostrarErrorFeedback(input, false);
+        return true;
+    }
+}
+
+function validarEdad(input) {
+    const birthDate = new Date(input.value);
+    const today = new Date();
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+
+    const isOldEnough = age > 13 || (age === 13 && (m > 0 || (m === 0 && today.getDate() >= birthDate.getDate())));
+
+    if (!isOldEnough) {
+        mostrarErrorFeedback(input, true, 'Debe tener al menos 13 años.');
+        return false;
+    } else {
+        mostrarErrorFeedback(input, false);
+        return true;
+    }
+}
+
+function validarPassword(input) {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{6,18}$/;
+    if (!passwordRegex.test(input.value)) {
+        mostrarErrorFeedback(input, true, 'Contraseña entre 6-18 caracteres, con al menos una mayúscula y un número.');
+        return false;
+    } else {
+        mostrarErrorFeedback(input, false);
+        return true;
+    }
+}
+
+function validarPasswordIgual(passwordInput, confirmPasswordInput) {
+    if (passwordInput.value !== confirmPasswordInput.value) {
+        mostrarErrorFeedback(confirmPasswordInput, true, 'Las contraseñas deben coincidir.');
+        return false;
+    } else {
+        mostrarErrorFeedback(confirmPasswordInput, false);
+        return true;
     }
 }
